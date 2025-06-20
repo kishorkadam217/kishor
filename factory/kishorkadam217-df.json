@@ -1,0 +1,9 @@
+{
+	"name": "kishorkadam217-df",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4633cd34-937b-4299-af1f-ebc5d5aadfa2",
+		"tenantId": "3f13a870-e689-4de0-84c5-fa1e41377252"
+	}
+}
