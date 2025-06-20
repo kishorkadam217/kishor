@@ -1,0 +1,16 @@
+{
+	"name": "AzureSqlTable2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"table": "DS_SQL_Lookup_FactSales_Watermark"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
