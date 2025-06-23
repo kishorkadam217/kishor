@@ -1,0 +1,29 @@
+name: Deploy Synapse Workspace
+
+on:
+  push:
+    branches:
+      - kk  # Change this if your main deployment branch is different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Login via Azure CLI
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy Synapse artifacts
+        uses: Azure/synapse-workspace-deployment@v1.4.0
+        with:
+          TargetWorkspaceName: store-synapse-kk     # Replace with your Synapse workspace name
+          TargetResourceGroup: store-data-rg        # Replace with your resource group name
+          TemplateFile: template.json               # Default path in Synapse repo
+          ParametersFile: parameters.json           # Default parameters file
+          environment: 'Azure Public'
